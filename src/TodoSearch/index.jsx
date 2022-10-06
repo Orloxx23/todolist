@@ -13,6 +13,7 @@ function TodoSearch() {
       className="input"
       placeholder="Buscar tarea..."
       onChange={onSearchValueChange}
+      autoComplete="off"
     />
   );
 }

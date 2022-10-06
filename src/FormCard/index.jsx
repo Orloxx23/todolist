@@ -41,6 +41,7 @@ function FormCard() {
             name="text"
             type="text"
             onChange={onChangeInput}
+            autoComplete="off"
           />
           {error && <p style={{marginTop: 20, textAlign: "end"}}>Algo anda mal 😐</p>}
           <button type="submit" class="btn">
