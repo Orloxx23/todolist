@@ -10,6 +10,7 @@ import { Loader } from "../Loader";
 import { TodoContext } from "../TodoContext";
 import { Modal } from "../Modal";
 import { FormCard } from "../FormCard";
+import { HideCompleted } from "../HideCompleted";
 
 function AppUI() {
   const {
@@ -32,6 +33,7 @@ function AppUI() {
               <CreateTodoButton />
             </div>
           </div>
+          {!loading && <HideCompleted />}
           <TodoList>
             {error && <p>Algo anda mal...</p>}
             {loading && (

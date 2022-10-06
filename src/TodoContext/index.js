@@ -11,22 +11,52 @@ function TodoProvider(props) {
     loading,
     error,
   } = useLocalStorage("TODOS_V1", []);
+
+  const {
+    item: hide,
+    saveItem: saveHide,
+  } = useLocalStorage("hide", []);
+
   const [searchValue, setSearchValue] = React.useState("");
   const [openModal, setOpenModal] = React.useState(false);
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
 
-  let searchedTodos = [];
+  let searchedTodos = todos;
+
+  const [hidden, setHidden] = React.useState(false);
+
+  const hideCompleted = () => {
+    setHidden(!hidden);
+    saveHide(!hidden);
+  };
 
   if (!searchValue.length >= 1) {
-    searchedTodos = todos;
+    if(!hide){
+      searchedTodos = todos;
+    } else {
+      searchedTodos = todos.filter(todo => !todo.completed)
+    }
   } else {
-    searchedTodos = todos.filter((todo) => {
-      const todoText = todo.text.toLowerCase();
-      const searchText = searchValue.toLowerCase();
-      return todoText.includes(searchText);
-    });
+    let newSearchedTodos = [];
+    if (hide) {
+      newSearchedTodos = todos.filter((todo) => {
+        const todoText = todo.text.toLowerCase();
+        const searchText = searchValue.toLowerCase();
+        return todoText.includes(searchText);
+      });
+
+      searchedTodos = newSearchedTodos.filter((todo) => !todo.completed);
+    } else {
+      newSearchedTodos = todos.filter((todo) => {
+        const todoText = todo.text.toLowerCase();
+        const searchText = searchValue.toLowerCase();
+        return todoText.includes(searchText);
+      });
+
+      searchedTodos = newSearchedTodos.filter((todo) => todo.completed);
+    }
   }
 
   const addTodo = (text) => {
@@ -67,6 +97,8 @@ function TodoProvider(props) {
         openModal,
         setOpenModal,
         addTodo,
+        hidden,
+        hideCompleted,
       }}
     >
       {props.children}

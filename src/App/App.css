@@ -421,6 +421,16 @@ hr {
 
 /* Buttomn form */
 
+.HideCompleted{
+  padding: 0px 20px;
+  margin-bottom: 10px;
+}
+
+.HideCompleted p, i{
+  color: rgba(255, 255, 255, 0.286);
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .contenedor {
     width: 100%;

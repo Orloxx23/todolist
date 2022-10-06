@@ -37,7 +37,7 @@ function FormCard() {
         <form onSubmit={onSubmit} className="form">
           <input
             placeholder="Type here"
-            class="input-form"
+            className="input-form"
             name="text"
             type="text"
             onChange={onChangeInput}
