@@ -12,7 +12,7 @@ function TodoCounter() {
     }
 
     if(faltantes === 1){
-      return `Faltan ${faltantes} tarea por completar`;
+      return `Falta ${faltantes} tarea por completar`;
     }
     
     if(faltantes > 1){
