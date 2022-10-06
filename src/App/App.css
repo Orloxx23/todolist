@@ -1,0 +1,464 @@
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  color: white;
+}
+
+body {
+  background: #202020;
+}
+
+.contenedor {
+  width: 80%;
+  margin: auto;
+  overflow: hidden;
+  margin-top: 10vh;
+
+  border-radius: 20px;
+  background: #202020;
+  box-shadow: 20px 20px 60px #1b1b1b, -20px -20px 60px #252525;
+}
+
+.cover-page {
+  /* background-image: url("./Fondo.jpg"); */
+  background-size: cover;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+
+.cover-page h1 {
+  color: rgb(244, 223, 253);
+  font-weight: 700;
+  letter-spacing: 5px;
+
+  text-shadow: 0 0 7px #fff, 0 0 10px rgb(179, 0, 255),
+    0 0 21px rgb(179, 0, 255), 0 0 42px rgb(244, 223, 253);
+}
+
+.cuerpo {
+  padding: 20px;
+  background: #202020;
+}
+
+hr {
+  border: 1px solid #303030;
+  margin: 0 20px;
+}
+
+/* From uiverse.io by @Jaareet */
+.input {
+  font-weight: 500;
+  font-size: 0.8vw;
+  color: #fff;
+  background-color: #1b1b1b;
+  box-shadow: 0 0 0.4vw rgba(0, 0, 0, 0.5), 0 0 0 0.15vw transparent;
+  border-radius: 0.4vw;
+  border: none;
+  outline: none;
+  padding: 0.4vw;
+  max-width: 100%;
+  transition: 0.4s;
+  padding: 0 20px;
+}
+
+.input:hover {
+  box-shadow: 0 0 0 0.15vw #bf21f338;
+}
+
+.input:focus {
+  box-shadow: 0 0 0 0.15vw #bf21f3;
+}
+
+.cuerpo-primer-contenedor {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 25px;
+  grid-template-areas: ". .";
+
+  margin-bottom: 20px;
+}
+
+.cositas {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0 10px;
+  grid-template-areas: ". .";
+}
+
+.TodoList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  max-height: 60vh;
+
+  overflow-y: auto;
+}
+
+.TodoItem {
+  width: 100%;
+  border-radius: 50px;
+  background: #1b1b1b;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  min-height: 4rem;
+}
+
+.completado {
+  display: flex;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.cuerpo-contenido {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 20px;
+}
+
+.cuerpo-contenido i {
+  cursor: pointer;
+}
+
+/*  */
+
+/* From uiverse.io by @Alaner-xs */
+/* Hide the default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.container {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 1.3em;
+  width: 1.3em;
+  background-color: #ccc;
+  border-radius: 15%;
+  box-shadow: 0px 0px 17px #c7bbb8;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #bf21f3;
+  box-shadow: 0px 0px 17px #bf21f3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 0.45em;
+  top: 0.25em;
+  width: 0.25em;
+  height: 0.5em;
+  border: solid rgb(233, 222, 222);
+  border-width: 0 0.15em 0.15em 0;
+  transform: rotate(45deg);
+}
+
+/*  */
+
+.icon-btn {
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 50%;
+  background: #bf21f3;
+  cursor: pointer;
+  border: none;
+}
+
+.icon-btn i {
+  font-size: 1.5rem;
+  text-shadow: 0 0 3.5px #fff, 0 0 5px rgb(179, 0, 255),
+    0 0 10.5px rgb(179, 0, 255), 0 0 21px rgb(244, 223, 253);
+}
+
+.center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.TodoList h2 {
+  margin: 40px 0;
+}
+
+/* Loader */
+
+/* From uiverse.io by @xXJollyHAKERXx */
+.spinner {
+  background-image: linear-gradient(rgb(186, 66, 255) 35%, rgb(0, 225, 255));
+  width: 75px;
+  height: 75px;
+  animation: spinning82341 1.7s linear infinite;
+  text-align: center;
+  border-radius: 50px;
+  filter: blur(1px);
+  box-shadow: 0px -5px 20px 0px rgb(186, 66, 255),
+    0px 5px 20px 0px rgb(0, 225, 255);
+  margin: 20px;
+}
+
+.spinner1 {
+  background-color: rgb(36, 36, 36);
+  width: 100%;
+  height: 100%;
+  border-radius: 50px;
+  filter: blur(10px);
+}
+
+@keyframes spinning82341 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loader */
+
+.FormModal {
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.FormCard {
+  width: 80%;
+  max-width: 600px;
+  background: #202020;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.card-head {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.card-head i {
+  font-size: 2.5rem;
+  cursor: pointer;
+}
+
+.form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 0px 0px;
+  grid-template-areas: 
+    "."
+    ".";
+}
+
+/* Input form */
+
+/* From uiverse.io by @Cornerstone-04 */
+.input-form {
+  width: 100%;
+  height: 30px;
+  border: 2px solid transparent;
+  outline: none;
+  border-bottom: 2px solid #3f3f3f;
+  caret-color: #3f3f3f;
+  background-color: #212121;
+  padding: 5px;
+  transition: 0.5s linear;
+  font-family: monospace;
+  letter-spacing: 1px;
+}
+
+.input-form:focus {
+  border: 2px solid #bf21f3;
+  caret-color: #bf21f3;
+  color: #bf21f3;
+  box-shadow: 4px 4px 10px #070707;
+}
+
+.input-form:focus::placeholder {
+  color: #bf21f3;
+}
+
+/* Input form */
+
+/* Buttomn form */
+
+/* From uiverse.io by @EmmaxPlay */
+.btn {
+  padding: 0.9em 1.6em;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 17px;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 12px;
+  margin-top: 20px;
+}
+
+.btn::after {
+  content: "";
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #202020;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+/* glow */
+.btn::before {
+  content: "";
+  background: linear-gradient(
+    45deg,
+    #002bff,
+    #bf21f3,
+    #002bff,
+    #ff0000,
+    #002bff,
+    #bf21f3,
+    #002bff
+  );
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 600%;
+  z-index: -1;
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  filter: blur(8px);
+  animation: glowing 20s linear infinite;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+  opacity: 0;
+}
+
+@keyframes glowing {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* hover */
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:active:after {
+  background: #20202034;
+}
+
+.btn:active {
+  color: #000;
+  font-weight: bold;
+}
+
+/* Buttomn form */
+
+@media (max-width: 768px) {
+  .contenedor {
+    width: 100%;
+    min-height: 100vh;
+    margin-top: 0;
+  }
+
+  .cuerpo-primer-contenedor {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1.5rem 0px;
+    grid-template-areas:
+      "."
+      ".";
+  }
+
+  .input {
+    font-weight: 500;
+    font-size: 5vw;
+  }
+
+  .TodoList {
+    max-height: 65vh;
+  }
+
+  .center {
+    width: 100%;
+    height: 60vh;
+  }
+
+  .form {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 00px;
+    grid-template-areas: 
+      "."
+      ".";
+  }
+}
