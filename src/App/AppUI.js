@@ -11,6 +11,7 @@ import { TodoContext } from "../TodoContext";
 import { Modal } from "../Modal";
 import { FormCard } from "../FormCard";
 import { HideCompleted } from "../HideCompleted";
+import { Footer } from "../Footer";
 
 function AppUI() {
   const {
@@ -59,6 +60,7 @@ function AppUI() {
           </TodoList>
         </div>
       </div>
+      <Footer />
 
       {!!openModal && (
         <Modal>

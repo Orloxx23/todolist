@@ -431,6 +431,36 @@ hr {
   cursor: pointer;
 }
 
+.AppFooter{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+
+  display: grid; 
+  grid-template-columns: 1fr 1fr; 
+  grid-template-rows: 1fr; 
+  gap: 0px 0px; 
+  grid-template-areas: 
+    ". ."; 
+}
+
+.AppFooter p{
+  margin: 0 20px;
+  color: rgba(255, 255, 255, 0.146);
+}
+
+.icons{
+  display: flex;
+  justify-self: flex-end;
+  margin: 0 20px;
+}
+
+.icons i{
+  margin: 5px;
+  color: rgba(255, 255, 255, 0.146);
+}
+
 @media (max-width: 768px) {
   .contenedor {
     width: 100%;
@@ -474,5 +504,9 @@ hr {
     grid-template-areas: 
       "."
       ".";
+  }
+
+  .AppFooter{
+    position: relative;
   }
 }
