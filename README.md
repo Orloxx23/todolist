@@ -17,6 +17,11 @@ cd todolist
 ```
 
 ```
+npm install
+```
+
+
+```
 npm start
 ```
 
