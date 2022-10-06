@@ -428,6 +428,10 @@ hr {
     margin-top: 0;
   }
 
+  .cuerpo{
+    margin: 20px;
+  }
+
   .cuerpo-primer-contenedor {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
