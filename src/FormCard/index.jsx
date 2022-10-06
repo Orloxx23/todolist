@@ -36,7 +36,7 @@ function FormCard() {
         </div>
         <form onSubmit={onSubmit} className="form">
           <input
-            placeholder="Type here"
+            placeholder="Crear tarea"
             className="input-form"
             name="text"
             type="text"
