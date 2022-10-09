@@ -300,7 +300,7 @@ hr {
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 1fr;
   gap: 0px 0px;
-  grid-template-areas: 
+  grid-template-areas:
     "."
     ".";
 }
@@ -421,44 +421,62 @@ hr {
 
 /* Buttomn form */
 
-.HideCompleted{
+.HideCompleted {
   padding: 0px 20px;
   margin-bottom: 10px;
 }
 
-.HideCompleted p, i{
+.HideCompleted p,
+i {
   color: rgba(255, 255, 255, 0.286);
   cursor: pointer;
 }
 
-.AppFooter{
+.AppFooter {
   position: fixed;
   bottom: 0;
   width: 100%;
   padding: 20px 0;
 
-  display: grid; 
-  grid-template-columns: 1fr 1fr; 
-  grid-template-rows: 1fr; 
-  gap: 0px 0px; 
-  grid-template-areas: 
-    ". ."; 
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-template-areas: ". .";
 }
 
-.AppFooter p{
+.AppFooter p {
   margin: 0 20px;
   color: rgba(255, 255, 255, 0.146);
 }
 
-.icons{
+.icons {
   display: flex;
   justify-self: flex-end;
   margin: 0 20px;
 }
 
-.icons i{
+.icons i {
   margin: 5px;
   color: rgba(255, 255, 255, 0.146);
+}
+
+.TodoList::-webkit-scrollbar {
+  width: 7px;
+}
+
+.TodoList::-webkit-scrollbar-thumb {
+  background: #bf21f36d;
+  border-radius: 4px;
+}
+
+.TodoList::-webkit-scrollbar-thumb:hover {
+  background: #bf21f39c;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.TodoList::-webkit-scrollbar-thumb:active {
+  background-color: #bf21f3;
 }
 
 @media (max-width: 768px) {
@@ -477,7 +495,7 @@ hr {
       ".";
   }
 
-  .cuerpo{
+  .cuerpo {
     padding: 0px;
   }
 
@@ -501,12 +519,16 @@ hr {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr;
     gap: 0px 00px;
-    grid-template-areas: 
+    grid-template-areas:
       "."
       ".";
   }
 
-  .AppFooter{
+  .AppFooter {
     position: relative;
+  }
+
+  .TodoList::-webkit-scrollbar {
+    display: none;
   }
 }
