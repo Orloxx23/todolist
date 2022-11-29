@@ -5,7 +5,7 @@ function TodoItem(props) {
     <div className="TodoItem">
       <div className="completado">
         <label className="container">
-          <input defaultChecked={props.completed} type="checkbox"  onClick={props.changeStateTodos}/>
+          <input defaultChecked={props.completed} type="checkbox"  onClick={props.changeStateTodos} aria-labelledby="Casilla de revisión"/>
           <div className="checkmark"></div>
         </label>
       </div>

@@ -9,6 +9,7 @@ function Footer() {
           href="https://github.com/Orloxx23/todolist"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Repositorio en Github"
         >
           <i className="fa-solid fa-code"></i>
         </a>
@@ -16,6 +17,7 @@ function Footer() {
           href="https://github.com/Orloxx23"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Sigueme en Github"
         >
           <i className="fa-brands fa-github"></i>
         </a>
@@ -23,6 +25,7 @@ function Footer() {
           href="https://www.linkedin.com/in/orlandomm/"
           target="_blank"
           rel="noopener noreferrer"
+          aria-label="Sigueme en Linkedin"
         >
           <i className="fa-brands fa-linkedin"></i>
         </a>
