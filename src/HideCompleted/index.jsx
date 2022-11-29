@@ -6,7 +6,7 @@ function HideCompleted() {
   return (
     <div className="HideCompleted">
       <p onClick={hideCompleted}>
-        <i className={hide ? ("fa-regular fa-eye") : ("fa-regular fa-eye-slash")}></i> {hide ? ("Ver") : ("Ocular")} completadas
+        <i className={hide ? ("fa-regular fa-eye") : ("fa-regular fa-eye-slash")}></i> {hide ? ("Ver") : ("Ocultar")} completadas
       </p>
     </div>
   );
