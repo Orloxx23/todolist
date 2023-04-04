@@ -25,13 +25,22 @@ npm install
 npm start
 ```
 
+## Environment Variables
+
+To run this project, you will need to add the following environment variables to your .env file
+
+`REACT_APP_RAPID_API_KEY`
+
+`REACT_APP_RAPID_API_HOST`
+
 ## Construido con 🛠️
 
 * [React](https://es.reactjs.org)
+* [OpenAI (RapidAPI)](https://rapidapi.com/)
 
 ## Autores ✒️
 
-Puedes mirar la lista de todos los [contribuyentes](https://github.com/Orloxx23/todolist/blob/main/Contribuyentes).
+Puedes mirar la lista de todos los [contribuyentes](https://github.com/Orloxx23/todolist/blob/gpt3/Contribuyentes).
 
 
 

@@ -2,7 +2,8 @@ import React from "react";
 import { TodoContext } from "../TodoContext";
 
 function FormCard() {
-  const { setOpenModal, addTodo } = React.useContext(TodoContext);
+  const { setOpenModal, addTodo, loadingAddTodo } =
+    React.useContext(TodoContext);
 
   const [newTodoValue, setNewTodoValue] = React.useState("");
 
@@ -13,6 +14,7 @@ function FormCard() {
   };
 
   const onCancel = () => {
+    if (loadingAddTodo) return;
     setOpenModal((prevState) => !prevState);
   };
 
@@ -20,10 +22,8 @@ function FormCard() {
     event.preventDefault();
     if (newTodoValue.length > 0) {
       addTodo(newTodoValue);
-      onCancel();
-      
     } else {
-        setError(true);
+      setError(true);
     }
   };
 
@@ -43,13 +43,28 @@ function FormCard() {
             onChange={onChangeInput}
             autoComplete="off"
           />
-          {error && <p style={{marginTop: 20, textAlign: "end"}}>Algo anda mal 😐</p>}
-          <button type="submit" class="btn">
-            Crear
-          </button>
+          {error && (
+            <p style={{ marginTop: 20, textAlign: "end" }}>Algo anda mal 😐</p>
+          )}
+          {!loadingAddTodo ? (
+            <button type="submit" className="btn">
+              Crear
+            </button>
+          ) : (
+            <div className="loaderaddtodo">
+              <p>Generando Tips...</p>
+              <div className="loader-add">
+                <div className="loader__circle-add"></div>
+                <div className="loader__circle-add"></div>
+                <div className="loader__circle-add"></div>
+                <div className="loader__circle-add"></div>
+                <div className="loader__circle-add"></div>
+              </div>
+            </div>
+          )}
         </form>
       </div>
-    </div>
+    </div>  
   );
 }
 
