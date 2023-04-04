@@ -1,6 +1,15 @@
 # To do list
 
 _Curso de Introducción a React.js - Platzi_
+_Ahora con una nueva caracteristica donde GPT3 de aconseja para cumplir tus tareas._
+
+## Característica
+
+- Añadir tareas.
+- Cambiar estado de la tarea.
+- Filtrar por estado.
+- Eliminar tarea.
+- Consejos para cumplir la tarea.
 
 ## Comenzando 🚀
 
@@ -25,9 +34,9 @@ npm install
 npm start
 ```
 
-## Environment Variables
+## Variables de Entorno
 
-To run this project, you will need to add the following environment variables to your .env file
+_Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno a su archivo .env_
 
 `REACT_APP_RAPID_API_KEY`
 
