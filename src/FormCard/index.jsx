@@ -42,6 +42,7 @@ function FormCard() {
             type="text"
             onChange={onChangeInput}
             autoComplete="off"
+            autoFocus
           />
           {error && (
             <p style={{ marginTop: 20, textAlign: "end" }}>Algo anda mal 😐</p>
