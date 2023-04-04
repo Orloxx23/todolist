@@ -1,7 +1,8 @@
 # To do list
 
 _Curso de Introducción a React.js - Platzi_
-_Ahora con una nueva caracteristica donde GPT3 de aconseja para cumplir tus tareas._
+
+_Ahora GPT3 da aconsejos para cumplir las tareas._
 
 ## Característica
 
@@ -9,7 +10,7 @@ _Ahora con una nueva caracteristica donde GPT3 de aconseja para cumplir tus tare
 - Cambiar estado de la tarea.
 - Filtrar por estado.
 - Eliminar tarea.
-- Consejos para cumplir la tarea.
+- Consejos para cumplir la tarea. ⭐
 
 ## Comenzando 🚀
 
