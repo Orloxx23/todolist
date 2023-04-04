@@ -12,6 +12,7 @@ import { Modal } from "../Modal";
 import { FormCard } from "../FormCard";
 import { HideCompleted } from "../HideCompleted";
 import { Footer } from "../Footer";
+import TipCard from "../TipCard";
 
 function AppUI() {
   const {
@@ -21,6 +22,8 @@ function AppUI() {
     changeStateTodos,
     deleteTodo,
     openModal,
+    showTip,
+    openTipModal,
   } = React.useContext(TodoContext);
 
   return (
@@ -50,11 +53,13 @@ function AppUI() {
 
             {searchedTodos.map((todo) => (
               <TodoItem
-                key={todo.text}
+                key={todo.id}
                 text={todo.text}
                 completed={todo.completed}
-                changeStateTodos={() => changeStateTodos(todo.text)}
-                onDelete={() => deleteTodo(todo.text)}
+                seen={todo.seen}
+                changeStateTodos={() => changeStateTodos(todo.id)}
+                onDelete={() => deleteTodo(todo.id)}
+                onSeen={() => showTip(todo)}
               />
             ))}
           </TodoList>
@@ -65,6 +70,12 @@ function AppUI() {
       {!!openModal && (
         <Modal>
           <FormCard />
+        </Modal>
+      )}
+
+      {!!openTipModal && (
+        <Modal>
+          <TipCard />
         </Modal>
       )}
     </React.Fragment>

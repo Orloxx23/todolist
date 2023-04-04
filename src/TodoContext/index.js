@@ -16,6 +16,10 @@ function TodoProvider(props) {
 
   const [searchValue, setSearchValue] = React.useState("");
   const [openModal, setOpenModal] = React.useState(false);
+  const [openTipModal, setOpenTipModal] = React.useState(false);
+  const [loadingAddTodo, setLoadingAddTodo] = React.useState(false);
+
+  const [todoSelected, setTodoSelected] = React.useState({});
 
   const completedTodos = todos.filter((todo) => !!todo.completed).length;
   const totalTodos = todos.length;
@@ -51,27 +55,79 @@ function TodoProvider(props) {
     }
   }
 
-  const addTodo = (text) => {
+  const addTodo = async (text) => {
     const newTodos = [...todos];
+    let tip = "";
+
+    setLoadingAddTodo(true);
+
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+      },
+      body: JSON.stringify({
+        model: "gpt-3.5-turbo",
+        messages: [
+          {
+            role: "system",
+            content:
+              "You are an assistant that motivates its users to carry out their tasks and advises and advises them to carry them out successfully. you are direct and concise. you never greet your users.",
+          },
+          {
+            role: "user",
+            content: `como puedo hacer esta tarea: '${text}'`,
+          },
+        ],
+      }),
+    };
+
+    await fetch("https://openai80.p.rapidapi.com/chat/completions", options)
+      .then((response) => response.json())
+      .then((response) => {
+        tip = response?.choices[0]?.message?.content;
+        console.log("Peticion completada");
+      })
+      .catch((err) => console.error(err));
+
     newTodos.push({
+      id: Date.now(),
       completed: false,
       text: text,
+      tip: tip,
+      seen: false,
     });
+
     saveTodos(newTodos);
+
+    setLoadingAddTodo(false);
+    if (openModal) setOpenModal(false);
   };
 
-  const changeStateTodos = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
+  const changeStateTodos = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
     newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
     saveTodos(newTodos);
   };
 
-  const deleteTodo = (text) => {
-    const todoIndex = todos.findIndex((todo) => todo.text === text);
+  const deleteTodo = (id) => {
+    const todoIndex = todos.findIndex((todo) => todo.id === id);
     const newTodos = [...todos];
     newTodos.splice(todoIndex, 1);
     saveTodos(newTodos);
+  };
+
+  const showTip = (todo) => {
+    setTodoSelected(todo);
+    const todoIndex = todos.findIndex((ttodo) => ttodo.id === todo.id);
+    const newTodos = [...todos];
+    if (!newTodos[todoIndex].seen) newTodos[todoIndex].seen = true;
+    saveTodos(newTodos);
+    console.log(todo.tip);
+    setOpenTipModal(true);
   };
 
   return (
@@ -88,9 +144,14 @@ function TodoProvider(props) {
         deleteTodo,
         openModal,
         setOpenModal,
+        openTipModal,
+        setOpenTipModal,
+        showTip,
         addTodo,
         hide,
         hideCompleted,
+        loadingAddTodo,
+        todoSelected,
       }}
     >
       {props.children}

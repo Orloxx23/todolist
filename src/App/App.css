@@ -257,7 +257,7 @@ hr {
 /* Loader */
 
 .FormModal {
-  position: absolute;
+  position: fixed;
   top: 0;
   display: flex;
   justify-content: center;
@@ -279,6 +279,7 @@ hr {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  max-height: 80vh;
 }
 
 .card-head {
@@ -292,6 +293,25 @@ hr {
 .card-head i {
   font-size: 2.5rem;
   cursor: pointer;
+}
+
+.card-body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  overflow-y: auto;
+}
+
+.card-body::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.card-body::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 4px;
 }
 
 .form {
@@ -477,6 +497,109 @@ i {
 
 .TodoList::-webkit-scrollbar-thumb:active {
   background-color: #bf21f3;
+}
+
+.TodoItem-buttons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.tip-button {
+  color: #ffc800;
+
+  transition: 0.3s;
+
+  filter: drop-shadow(0px 0px 1px #ffc800);
+}
+
+.tip-button:hover {
+  filter: drop-shadow(0px 0px 10px #ffc800) !important;
+}
+
+.tip-button-seen {
+  color: #5c5c5c;
+
+  transition: 0.3s;
+
+  filter: drop-shadow(0px 0px 0px #5c5c5c);
+}
+
+.tip-button-seen:hover {
+  filter: drop-shadow(0px 0px 10px #ffffff) !important;
+}
+
+.loaderaddtodo {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: calc(0.9em + 17px + 20px);
+}
+
+.loaderaddtodo p {
+  opacity: 0.3;
+}
+
+.loader-add {
+  position: relative;
+  display: flex;
+  gap: 0.3em;
+}
+
+.loader-add::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 2em;
+  filter: blur(45px);
+  background-color: #e299ff;
+  background-image: radial-gradient(
+      at 52% 57%,
+      hsla(11, 83%, 72%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 37% 57%, hsla(175, 78%, 66%, 1) 0px, transparent 50%);
+}
+
+.loader__circle-add {
+  --size__loader: 0.6em;
+  width: var(--size__loader);
+  height: var(--size__loader);
+  border-radius: 50%;
+  animation: loader__circle__jumping 2s infinite;
+  background-color: #b499ff;
+}
+
+.loader__circle-add:nth-child(2n) {
+  animation-delay: 300ms;
+  background-color: #e499ff;
+}
+
+.loader__circle-add:nth-child(3n) {
+  animation-delay: 600ms;
+}
+
+@keyframes loader__circle__jumping {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  25% {
+    transform: translateY(-15px) scale(0.5);
+  }
+
+  50% {
+    transform: translateY(0px);
+  }
+
+  75% {
+    transform: translateY(5px) scale(0.9);
+  }
 }
 
 @media (max-width: 768px) {
