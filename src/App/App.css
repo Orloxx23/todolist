@@ -604,10 +604,10 @@ i {
 
 @media (max-width: 768px) {
   .contenedor {
-    width: calc(100% - 40px);
-    min-height: calc(100vh - 40px);
+    width: calc(100% - 20px);
+    min-height: calc(100vh - 20px);
     margin-top: 0;
-    padding: 20px;
+    padding: 10px;
   }
 
   .cuerpo-primer-contenedor {
