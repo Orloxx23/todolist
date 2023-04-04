@@ -88,7 +88,6 @@ function TodoProvider(props) {
       .then((response) => response.json())
       .then((response) => {
         tip = response?.choices[0]?.message?.content;
-        console.log("Peticion completada");
       })
       .catch((err) => console.error(err));
 
@@ -126,7 +125,6 @@ function TodoProvider(props) {
     const newTodos = [...todos];
     if (!newTodos[todoIndex].seen) newTodos[todoIndex].seen = true;
     saveTodos(newTodos);
-    console.log(todo.tip);
     setOpenTipModal(true);
   };
 
