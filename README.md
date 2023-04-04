@@ -40,7 +40,7 @@ To run this project, you will need to add the following environment variables to
 
 ## Autores ✒️
 
-Puedes mirar la lista de todos los [contribuyentes](https://github.com/Orloxx23/todolist/blob/gpt3/Contribuyentes).
+Puedes mirar la lista de todos los [contribuyentes](https://github.com/Orloxx23/todolist/blob/main/Contribuyentes).
 
 
 
