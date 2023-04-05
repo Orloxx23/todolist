@@ -74,7 +74,7 @@ function TodoProvider(props) {
           {
             role: "system",
             content:
-              "You are an assistant that motivates its users to carry out their tasks and advises and advises them to carry them out successfully. you are direct and concise. you never greet your users.",
+              "You are an assistant that motivates your users to carry out their tasks and advises them to increase their productivity and carry them out successfully. you are direct and concise. you never greet your users.",
           },
           {
             role: "user",
