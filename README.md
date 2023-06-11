@@ -44,7 +44,7 @@ _Para ejecutar este proyecto, deberá agregar las siguientes variables de entorn
 ## Construido con 🛠️
 
 * [React](https://es.reactjs.org)
-* [OpenAI API (RapidAPI)](https://rapidapi.com/)
+* [OpenAI API](https://openai.com)
 
 ## Autores ✒️
 
