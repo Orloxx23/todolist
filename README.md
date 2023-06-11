@@ -39,9 +39,7 @@ npm start
 
 _Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno a su archivo .env_
 
-`REACT_APP_RAPID_API_KEY`
-
-`REACT_APP_RAPID_API_HOST`
+`REACT_APP_OPENAI_KEY`
 
 ## Construido con 🛠️
 
