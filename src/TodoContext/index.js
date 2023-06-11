@@ -1,6 +1,7 @@
 import React from "react";
 
 import { useLocalStorage } from "./useLocalStorage";
+import axios from "axios";
 
 const TodoContext = React.createContext();
 
@@ -61,35 +62,37 @@ function TodoProvider(props) {
 
     setLoadingAddTodo(true);
 
-    const options = {
-      method: "POST",
+    let data = JSON.stringify({
+      model: "gpt-3.5-turbo",
+      temperature: 0.7,
+      max_tokens: 150,
+      messages: [
+        {
+          role: "system",
+          content:
+            "You are an assistant that motivates your users to carry out their tasks and advises them to increase their productivity and carry them out successfully. you are direct and concise. you never greet your users.",
+        },
+        {
+          role: "user",
+          content: `como puedo hacer esta tarea: '${text}'`,
+        },
+      ],
+    });
+
+    let config = {
+      method: "post",
+      maxBodyLength: Infinity,
+      url: "https://api.openai.com/v1/chat/completions",
       headers: {
-        "content-type": "application/json",
-        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.REACT_APP_OPENAI_KEY}`,
       },
-      body: JSON.stringify({
-        model: "gpt-3.5-turbo",
-        messages: [
-          {
-            role: "system",
-            content:
-              "You are an assistant that motivates your users to carry out their tasks and advises them to increase their productivity and carry them out successfully. you are direct and concise. you never greet your users.",
-          },
-          {
-            role: "user",
-            content: `como puedo hacer esta tarea: '${text}'`,
-          },
-        ],
-      }),
+      data: data,
     };
 
-    await fetch("https://openai80.p.rapidapi.com/chat/completions", options)
-      .then((response) => response.json())
-      .then((response) => {
-        tip = response?.choices[0]?.message?.content;
-      })
-      .catch((err) => console.error(err));
+    const response = await axios.request(config);
+
+    tip = response.data.choices[0].message.content;
 
     newTodos.push({
       id: Date.now(),
