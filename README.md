@@ -2,15 +2,12 @@
 
 _Curso de Introducción a React.js - Platzi_
 
-_Ahora GPT3 da aconsejos para cumplir las tareas._
-
 ## Característica
 
 - Añadir tareas.
 - Cambiar estado de la tarea.
 - Filtrar por estado.
 - Eliminar tarea.
-- Consejos para cumplir la tarea. ⭐
 
 ## Comenzando 🚀
 
