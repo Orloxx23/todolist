@@ -35,16 +35,9 @@ npm install
 npm start
 ```
 
-## Variables de Entorno
-
-_Para ejecutar este proyecto, deberá agregar las siguientes variables de entorno a su archivo .env_
-
-`REACT_APP_OPENAI_KEY`
-
 ## Construido con 🛠️
 
 * [React](https://es.reactjs.org)
-* [OpenAI API](https://openai.com)
 
 ## Autores ✒️
 

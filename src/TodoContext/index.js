@@ -1,7 +1,6 @@
 import React from "react";
 
 import { useLocalStorage } from "./useLocalStorage";
-import axios from "axios";
 
 const TodoContext = React.createContext();
 
@@ -58,53 +57,16 @@ function TodoProvider(props) {
 
   const addTodo = async (text) => {
     const newTodos = [...todos];
-    let tip = "";
-
-    setLoadingAddTodo(true);
-
-    let data = JSON.stringify({
-      model: "gpt-3.5-turbo",
-      temperature: 1,
-      // max_tokens: 150,
-      messages: [
-        {
-          role: "system",
-          content:
-            "You are an assistant that motivates your users to carry out their tasks and advises them to increase their productivity and carry them out successfully. you are direct and concise. you never greet your users.",
-        },
-        {
-          role: "user",
-          content: `como puedo hacer esta tarea: '${text}'`,
-        },
-      ],
-    });
-
-    let config = {
-      method: "post",
-      maxBodyLength: Infinity,
-      url: "https://api.openai.com/v1/chat/completions",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.REACT_APP_OPENAI_KEY}`,
-      },
-      data: data,
-    };
-
-    const response = await axios.request(config);
-
-    tip = response.data.choices[0].message.content;
 
     newTodos.push({
       id: Date.now(),
       completed: false,
       text: text,
-      tip: tip,
       seen: false,
     });
 
     saveTodos(newTodos);
 
-    setLoadingAddTodo(false);
     if (openModal) setOpenModal(false);
   };
 

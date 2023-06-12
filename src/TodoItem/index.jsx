@@ -19,7 +19,7 @@ function TodoItem(props) {
           {props.text}
         </p>
         <div className="TodoItem-buttons">
-          <i className={`${props.seen ? "fa-regular" : "fa-solid"} fa-lightbulb tip-button ${props.seen && "tip-button-seen"}`} onClick={props.onSeen}></i>
+          {/* <i className={`${props.seen ? "fa-regular" : "fa-solid"} fa-lightbulb tip-button ${props.seen && "tip-button-seen"}`} onClick={props.onSeen}></i> */}
           <i className="fa-solid fa-trash" onClick={props.onDelete}></i>
         </div>
       </div>
